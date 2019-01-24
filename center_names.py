@@ -4,6 +4,7 @@ import distance
 import json
 import numpy as np
 import os
+import pdb
 import sklearn.cluster
 
 
@@ -35,12 +36,18 @@ def get_center_names():
                             sc_book = "Empty"
 
                 center_names.append(sc_book)
+    center_names = set(center_names)
+    print("Got a total of {} unique center names".format(len(center_names)))
+    print("Saving to {}".format(name_file))
+    with open(name_file, "w") as f:
+        f.write("\n".join(list(center_names)))
 
-    return set(center_names)
+    return center_names
 
 
 def cluster_names(center_names):
     """Cluster similar names together."""
+    pdb.set_trace()
     names = np.asarray(center_names)
 
     print("Clustering names.")
@@ -61,6 +68,7 @@ if __name__ == "__main__":
     languages = ["Hindi", "Telugu", "Kannada", "Tamil", "Sanskrit"]
     partitions = ["hd1", "hd2", "hd3", "hd4", "hd5"]
 
+    name_file = "center_names.txt"
     output_file = "clusters.py"
 
     names = get_center_names()
