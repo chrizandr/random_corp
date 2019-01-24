@@ -64,12 +64,6 @@ SC_Tags = {
         "State Central Library, Hyderabad",
         "SCL-HYD",
     ],
-    "SC17": [
-        "Poornaprajna_Vidyapeetha",
-        "Poornaprajna_vidyapeetha",
-        "POORNAPRAJNA VIDYAPEETHA",
-        "PPVP",
-    ],
 
     "SC11": [
         "AKCE UNIVERSAL DIGITAL LIBRARY",
@@ -143,7 +137,11 @@ SC_Tags = {
         "SV Digital Library Tirupati",
         "SV Digital Library Tirupati ",
         "SV_Digital_Library_TTD_Tirupati",
-        "S. V Digital Library Ttd. P. P. V. P Bangalore"
+        "S. V Digital Library Ttd. P. P. V. P Bangalore",
+        "Poornaprajna_Vidyapeetha",
+        "Poornaprajna_vidyapeetha",
+        "POORNAPRAJNA VIDYAPEETHA",
+        "PPVP",
     ],
 
     "SC13": [

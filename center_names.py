@@ -8,6 +8,28 @@ import pdb
 import sklearn.cluster
 
 
+def get_sc_name(book):
+    """Get SC name from book xml."""
+    xml_path = os.path.join(book, 'META.XML')
+    xml_content = open(xml_path).read()
+    xml_tree = BeautifulSoup(xml_content)
+
+    # Try checking if the meta.xml file has scanningcentre tag
+    try:
+        sc_book = xml_tree.find('scanningcentre').text
+    except AttributeError:
+        try:
+            sc_book = xml_tree.find('scanningcentrename').text
+        except AttributeError:
+            try:
+                sc_book = xml_tree.find('SCANNING_CENTER').text
+            except AttributeError:
+                sc_book = "Empty"
+    if len(sc_book) == 0:
+        sc_book = "Empty"
+    return sc_book
+
+
 def get_center_names():
     """Get all center names from all books."""
     center_names = list()
@@ -17,28 +39,14 @@ def get_center_names():
             search_dir = os.path.join(main_path, partition, language)
             folder_list = [i for i in os.listdir(search_dir) if not os.path.isfile(search_dir + '/' + i)]
             print("Processing {} from partition {}".format(language, partition))
+
             for book in folder_list:
                 book_count += 1
                 # Read the book's META.XML file and build a tree using BeautifulSoup
                 book_folder_path = os.path.join(main_path, partition, language, book)
-                xml_path = os.path.join(book_folder_path, 'META.XML')
-                xml_content = open(xml_path).read()
-                xml_tree = BeautifulSoup(xml_content)
-
-                # Try checking if the meta.xml file has scanningcentre tag
-                try:
-                    sc_book = xml_tree.find('scanningcentre').text
-                except AttributeError:
-                    try:
-                        sc_book = xml_tree.find('scanningcentrename').text
-                    except AttributeError:
-                        try:
-                            sc_book = xml_tree.find('SCANNING_CENTER').text
-                        except AttributeError:
-                            sc_book = "Empty"
-                if len(sc_book) == 0:
-                    sc_book = "Empty"
+                sc_book = get_sc_name(book_folder_path)
                 center_names.append(sc_book)
+
     total_names = len(center_names)
     center_names = set(center_names)
     print("Got a total of {} books".format(book_count))
