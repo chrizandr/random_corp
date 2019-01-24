@@ -152,6 +152,7 @@ SC_Tags = {
         "Empty",
         "Others",
         " ",
+        "<enter name of scanning centre>"
     ],
 
     "SC5": [
