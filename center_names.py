@@ -64,7 +64,7 @@ def cluster_names(center_names):
         for cluster_id in np.unique(affprop.labels_):
             cluster = np.unique(names[np.nonzero(affprop.labels_ == cluster_id)])
             cluster_dict = {"cluster": list(cluster)}
-            f.write(json.dumps(cluster_dict, indent=2))
+            f.write(json.dumps(cluster_dict, indent=2) + "\n")
 
 
 if __name__ == "__main__":
@@ -73,7 +73,7 @@ if __name__ == "__main__":
     partitions = ["hd1", "hd2", "hd3", "hd4", "hd5"]
 
     name_file = "center_names.txt"
-    output_file = "clusters.py"
+    output_file = "clustered_names.txt"
 
     names = get_center_names()
     cluster_names(names)
