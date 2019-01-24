@@ -17,7 +17,7 @@ def find_sc(name):
             return k
 
 
-def select_from_corpus(language, sc_stats):
+def select_from_corpus(language):
     """Select pages randomly from corpus."""
     fnames = []
     for i, partition in enumerate(["hd1", "hd2", "hd3", "hd4", "hd5"]):
