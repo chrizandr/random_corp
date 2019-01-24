@@ -11,12 +11,14 @@ import sklearn.cluster
 def get_center_names():
     """Get all center names from all books."""
     center_names = list()
+    book_count = 0
     for partition in partitions:
         for language in languages:
             search_dir = os.path.join(main_path, partition, language)
             folder_list = [i for i in os.listdir(search_dir) if not os.path.isfile(search_dir + '/' + i)]
             print("Processing {} from partition {}".format(language, partition))
             for book in folder_list:
+                book_count += 1
                 # Read the book's META.XML file and build a tree using BeautifulSoup
                 book_folder_path = os.path.join(main_path, partition, language, book)
                 xml_path = os.path.join(book_folder_path, 'META.XML')
@@ -37,18 +39,19 @@ def get_center_names():
                 if len(sc_book) == 0:
                     sc_book = "Empty"
                 center_names.append(sc_book)
+    total_names = len(center_names)
     center_names = set(center_names)
-    print("Got a total of {} unique center names".format(len(center_names)))
-    print("Saving to {}".format(name_file))
+    print("Got a total of {} books".format(book_count))
+    print("{} book had center names with {} unique center names in total".format(total_names, len(center_names)))
+    print("Saving unique names to {}".format(name_file))
     with open(name_file, "w") as f:
         f.write("\n".join(list(center_names)))
 
-    return center_names
+    return list(center_names)
 
 
 def cluster_names(center_names):
     """Cluster similar names together."""
-    pdb.set_trace()
     names = np.asarray(center_names)
 
     print("Clustering names.")
