@@ -19,6 +19,7 @@ def find_sc(name):
 
 def select_from_corpus(language, sc_stats):
     """Select pages randomly from corpus."""
+    fnames = []
     for i, partition in enumerate(["hd1", "hd2", "hd3", "hd4", "hd5"]):
         pages_needed = int(1.5e5 * ((1.0*hd_distribution[language][i]) / sum(hd_distribution[language])))
         search_dir = os.path.join(corpus_path, partition, language)
@@ -50,8 +51,12 @@ def select_from_corpus(language, sc_stats):
             page_indices = np.random.permutation(len(sc_pages[sc]))[0:sc_pages_needed]
             page_names = [sc_pages[sc][x] for x in page_indices]
             final_pages.extend(page_names)
-            with open(os.path.join("output/", language + "_" + partition + "_" + sc + ".txt")) as f:
+            fname = os.path.join("output/", language + "_" + partition + "_" + sc + ".txt")
+            fnames.append(fname)
+            with open(fname, "w") as f:
                 f.write("\n".join(final_pages))
+
+    return fnames
 
 
 if __name__ == "__main__":
@@ -62,5 +67,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     corpus_path = "/home/chris-andrew/dli-corpus/DLI_LanguageWise"
-    files = select_from_corpus(args.lan, args.partition)
-    print("Following files have been created for {}, in Partition {}".format(args.lan, args.partition))
+    files = select_from_corpus(args.lan)
+    print("Following files have been created for {}:".format(args.lan))
