@@ -34,7 +34,8 @@ def get_center_names():
                             sc_book = xml_tree.find('SCANNING_CENTER').text
                         except AttributeError:
                             sc_book = "Empty"
-
+                if len(sc_book) == 0:
+                    sc_book = "Empty"
                 center_names.append(sc_book)
     center_names = set(center_names)
     print("Got a total of {} unique center names".format(len(center_names)))
