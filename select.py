@@ -3,6 +3,7 @@ import argparse
 import glob
 import numpy as np
 import os
+import pdb
 
 from center_names import get_sc_name
 from clustered_names import SC_Tags
@@ -15,6 +16,7 @@ def find_sc(name):
     for k in SC_Tags:
         if name in SC_Tags[k]:
             return k
+    pdb.set_trace()
 
 
 def select_from_corpus(language):
@@ -71,3 +73,4 @@ if __name__ == "__main__":
     corpus_path = "/home/chris-andrew/dli-corpus/DLI_LanguageWise"
     files = select_from_corpus(args.lan)
     print("Following files have been created for {}:".format(args.lan))
+    print("\n".join(files))
