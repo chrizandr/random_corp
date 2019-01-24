@@ -9,9 +9,6 @@ import sklearn.cluster
 
 def get_center_names():
     """Get all center names from all books."""
-    main_path = "/home/chris-andrew/dli-corpus/DLI_LanguageWise"
-    languages = ["Hindi", "Telugu", "Kannada", "Tamil", "Sanskrit"]
-    partitions = ["hd1", "hd2", "hd3", "hd4", "hd5"]
     center_names = list()
     for partition in partitions:
         for language in languages:
@@ -52,8 +49,19 @@ def cluster_names(center_names):
     affprop.fit(lev_similarity)
 
     print("Writing clusters to file.")
-    with open("clusters.py", "w") as f:
+    with open(output_file, "w") as f:
         for cluster_id in np.unique(affprop.labels_):
             cluster = np.unique(names[np.nonzero(affprop.labels_ == cluster_id)])
             cluster_dict = {"cluster": list(cluster)}
             f.write(json.dumps(cluster_dict, indent=2))
+
+
+if __name__ == "__main__":
+    main_path = "/home/chris-andrew/dli-corpus/DLI_LanguageWise"
+    languages = ["Hindi", "Telugu", "Kannada", "Tamil", "Sanskrit"]
+    partitions = ["hd1", "hd2", "hd3", "hd4", "hd5"]
+
+    output_file = "clusters.py"
+
+    names = get_center_names()
+    cluster_names(names)
