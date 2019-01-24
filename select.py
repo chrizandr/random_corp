@@ -50,6 +50,7 @@ def select_from_corpus(language):
             sc_pages_needed = int(pages_needed * ((1.0*ld[language][partition][sc_index]) / sum(ld[language][partition])))
             page_indices = np.random.permutation(len(sc_pages[sc]))[0:sc_pages_needed]
             page_names = [sc_pages[sc][x] for x in page_indices]
+            print(len(page_names))
             final_pages.extend(page_names)
             fname = os.path.join("output/", language + "_" + partition + "_" + sc + ".txt")
             fnames.append(fname)
