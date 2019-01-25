@@ -41,24 +41,31 @@ def select_from_corpus(language):
             pages += glob.glob1(ptiff_path, "*.TIF")
             pages += glob.glob1(ptiff_path, "*.tif")
             pages += glob.glob1(ptiff_path, "*.tiff")
-            pages = [os.path.join(book_folder_path, x) for x in pages]
+            pages = len(pages)
 
             if sc_tag in sc_pages:
-                sc_pages[sc_tag] += pages
+                sc_pages[sc_tag] += [(pages, book)]
             else:
-                sc_pages[sc_tag] = pages
+                sc_pages[sc_tag] = [(pages, book)]
 
         for sc in sc_pages:
             sc_index = int(sc.strip("SC")) - 1
             sc_pages_needed = int(pages_needed * ((1.0*ld[language][partition][sc_index]) / sum(ld[language][partition])))
             print("Pages needed from {} for {} = {} ".format(partition, sc, sc_pages_needed))
-            page_indices = np.random.permutation(len(sc_pages[sc]))[0:sc_pages_needed]
-            page_names = [sc_pages[sc][x] for x in page_indices]
+            book_indices = np.random.permutation(len(sc_pages[sc]))
+            pages = 0
+            books = []
+            for i in book_indices:
+                page, book = sc_pages[sc][i]
+                pages += page
+                books.append(book)
+                if pages >= sc_pages_needed:
+                    break
 
             fname = os.path.join("output/", language + "_" + partition + "_" + sc + ".txt")
             fnames.append(fname)
             with open(fname, "w") as f:
-                f.write("\n".join(page_names))
+                f.write("\n".join(books))
 
     return fnames
 
