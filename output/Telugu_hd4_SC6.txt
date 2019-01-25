@@ -1,16 +1,1 @@
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010007166/00000134.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010007166/00000157.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010005261/00000224.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010005261/00000050.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010006432/00000359.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010007166/00000415.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010005261/00000068.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010005187/00000076.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010005261/00000216.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010007166/00000398.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010007166/00000050.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010006432/00000503.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010005187/00000008.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010006432/00000272.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010007166/00000251.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/5010010006432/00000229.TIF
+5010010006432

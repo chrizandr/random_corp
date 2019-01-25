@@ -1,8 +1,1 @@
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/9000000000209/00000264.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/9000000000217/00000052.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/9000000000209/00000365.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/9000000000217/00000379.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/9000000000209/00000515.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/9000000000209/00000135.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/9000000000209/00000605.TIF
-/home/chris-andrew/dli-corpus/DLI_LanguageWise/hd4/Telugu/9000000000209/00000157.TIF
+9000000000209
